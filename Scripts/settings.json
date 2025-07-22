@@ -1,0 +1,12 @@
+{
+  "ftp": {
+    "host": "192.168.1.108",
+    "username": "ftp_client",
+    "password": "1111"
+  },
+  "logger": {
+    "logs_folder": "logs",
+    "files_to_log_folder": "files",
+    "period": 2
+  }
+}
