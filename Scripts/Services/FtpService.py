@@ -23,8 +23,9 @@ class FtpService:
                     raise
 
     def try_log_file(self, file_path: str, remote_directory_path: str = None):
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log_file_name = f"log_{timestamp}.txt"
+        remote_directory_path += f'/{datetime.now().strftime("%Y_%m_%d")}'
+        timestamp = datetime.now().strftime("%H%M%S_%f")
+        log_file_name = f"{timestamp}_log.txt"
         self._ensure_dir(remote_directory_path)
 
         return self.ftp.storbinary(f'STOR /{remote_directory_path}/{log_file_name}', open(file_path, 'rb'))
